@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Radio+Canada&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Radio Canada', Arial, sans-serif;
+    background-color: black;
+}
+
+header {
+    background-color: #BF4904;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+/* Container onde fica o player  */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 0;
+    padding: 10px;
+    width: 400px;
+    height: 400px;
+    background-color: #BF4904;
+    border-radius: 8px;
+}
+
+.cover img {
+    width: 300px;
+    height: 200px;
+    margin-left: 2px;
+    padding: 15px;
+    text-align: center;
+}
+
+.title {
+    margin-bottom: 15px;
+    text-align: center;
+    color: white;
+}
+
+.barra {
+    width: 300px;
+    height: 5px;
+    border: 1px solid #400101;
+    background-color: #400101;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.progress_vol {
+    height: 6px;
+    width: 0;
+    background-color: black;
+}
+
+.ponto {
+    background-color: #8C2703;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-left: -10px;
+}
+
+.time_music {
+    display: flex;
+    width: 300px;
+    justify-content: space-between;
+
+}
+.control {
+    margin-top: 15px;
+}
+
+.control img {
+    margin: 5px;
+    width: 30px;
+}
+
+/* seta */
+.seta {
+    width: 400px;
+    background-color: #8C2703;
+    border-radius: 8px;
+    margin: auto;
+    padding-top: 5px;
+    margin-top: -12px;
+    display: block;
+    text-align: center;
+    transition: 0.5s;
+}
+
+.seta-select img {
+
+    width: 20px;
+    height: 20px;
+}
+
+/*Lista de músicas  */
+.list_songs {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color:  #BF4904;
+    border-top: 3px solid black;
+    border-radius: 8px;
+
+}
+
+.list_songs h3, p {
+    color: white;
+    margin-left: 10px;
+    margin-top: 5px;
+
+}
+
+.list_songs img {
+    width: 80px;
+    height: 70px;
+}
+
+.song {
+    background-color: #8C2703;
+    margin: 10px 2px;
+    padding: 2px;
+    display: flex;
+    cursor: pointer;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.song:hover {
+    background-color: #bd3707;
+    
+}
+
+section.music_column {
+    width: 400px;
+    margin: auto;
+    display: none;
+
+}
+/* Mostrar ou não a lista de musicas */
+.music_column.show {
+    display: block;
+}
+
+.music_column.hidde {
+    display: none;
+}
+
+
+/* footer */ 
+footer{
+    margin-bottom: 0;
+}
+.footer {
+    width: 100%;
+    text-align: center;
+    margin-top: 60px;
+    padding: 20px;
+    background-color: #BF4904;
+    color: white;
+}
+/* #964c17 */

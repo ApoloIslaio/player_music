@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Music</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <header><!-- Cabeçalho -->
+        <h1>Músicas de qualidade</h1>
+    </header>
+    <main id="player"><!-- player -->
+        <div class="cover"><!-- Capa -->
+            <img id="cover" src=" " alt="">
+        </div>
+        <div class="title"><!-- titulos -->
+            <h3 id="title1"> </h3>
+            <p id="title2"> </p>
+        </div>
+        <div id="audio"> <!-- audio da música -->
+            <audio id="audio1">
+                <source id="srcAudio" src=" ">
+            </audio>
+             
+        </div>
+        <div class="barra"><!-- barra de tempo atual da música -->
+            <progress class="progress_vol" value="0" max="1"></progress>
+            <div class="ponto"></div>
+        </div>
+        <div class="time_music"><!-- tempo da música -->
+           <p class="current_time">0:00</p>
+           <p class="limit_time"> </p>  
+        </div>
+        
+        <!-- <div class="volume">
+            <input type="range" name="" id="vol">
+           
+        </div> -->
+        
+        
+        <div class="control"><!-- Controle da música -->
+            <img id="previous" src="./assets/img/rewind-button.png" alt="">
+            <img onclick="backwardMin()" src="./assets/img/ten_to_left.png" alt="">
+            <img id="btn_play" onclick="play_pause()" src="./assets/img/play-buttton.png" alt="">
+            <img onclick="forwardMin()" src="./assets/img/ten_to_right.png" alt="">
+            <img onclick="stopAudio()" src="./assets/img/stop-button.png" alt="">
+            <img id="next" src="./assets/img/fast-forward-button.png" alt="">
+
+        </div>
+         
+    </main>
+    <section onclick="showSongs()" class="seta"> 
+        <!-- Seta para mostrar ou não a lista de músicas inteira -->
+        <div class="seta-select">
+            <img id="seta" src="./assets/img/seta-para-baixo.png" alt="">
+        </div>
+    </section>
+    <section class="music_column">
+        <!-- Lista de músicas na tela -->
+        <div class="list_songs">
+            <div class="song">
+                <img src="./assets/img/alan-jackson.jpg" > 
+                <div>
+                    <h3>The Older I Get</h3>
+                    <p>Alan Jackson</p>
+                </div>
+            </div>
+            <div class="song">
+                <img src="./assets/img/almir-sater.jpg" > 
+                <div>
+                    <h3>Tocando em Frente</h3>
+                    <p>Almir Sater</p>
+                </div>
+
+            </div>
+            <div class="song">
+                <img src="./assets/img/BillyPreston.jpg" > 
+                <div>
+                    <h3>My Sweet Lord</h3>
+                    <p>Billy Preston</p>
+                </div>
+            </div>
+            <div class="song">
+                <img src="./assets/img/rocky.jpg" > 
+                <div>
+                    <h3>Gonna Fly Now</h3>
+                    <p>Bill Conti</p>
+                </div>
+            </div>
+            <div class="song">
+                <img src="./assets/img/LinkPark.jpg" > 
+                <div>
+                    <h3>Burn It Now</h3>
+                    <p>Link Park</p>
+                </div>
+            </div>
+            <div class="song">
+                <img src="./assets/img/transferir.jpg" > 
+                <div>
+                    <h3>Through the fires and flames</h3>
+                    <p>Dragon Force</p>
+                </div>
+            </div>
+            <div class="song">
+                <img src="./assets/img/Elvis.jpg" > 
+                <div>
+                    <h3>Brigde Over troubled water</h3>
+                    <p>Elvis Presley</p>
+                </div>
+            </div>
+            <div class="song">
+                <img src="./assets/img/eminem.jpg" > 
+                <div>
+                    <h3>Guts Over Fear</h3>
+                    <p>Eminem</p>
+                </div>
+            </div>
+            <div class="song">
+                <img src="./assets/img/ironmaiden.jpg" > 
+                <div>
+                    <h3>Fear Of Dark</h3>
+                    <p>Iron Maiden</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer><!-- Rodapé-->
+        <div class="footer">
+            <p>Music Player - 2022</p>
+        </div>
+    </footer>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>
