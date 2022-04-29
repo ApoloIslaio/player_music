@@ -11,6 +11,7 @@ let durationSong = document.querySelector('.limit_time');
 let previous_song = document.getElementById('previous');
 let next_song = document.getElementById('next');
 let index_song = 0;
+let clicked = false;
 let listMusic = [ //lista de músicas
     {
         src: './assets/music/Alan Jackson - The Older I Get.mp3',
@@ -28,7 +29,7 @@ let listMusic = [ //lista de músicas
         src: './assets/music/Billy Preston - My Sweet Lord.mp3',
         t1: '<h3 id="title1">My Sweet Lord</h3>',
         t2: '<p id="title2">Billy Preston</p>',
-        img: '/assets/img/BillyPreston.jpg'
+        img: './assets/img/BillyPreston.jpg'
     },
     {
         src: './assets/music/Bill Conti - Gonna Fly Now.mp3',
@@ -70,10 +71,9 @@ let listMusic = [ //lista de músicas
 
 //funções
 renderMusic(index_song);
-
 //seleção de músicas da lista
 for (let i = 0; i < the_song.length; i++) {
-    the_song[i].addEventListener('click', function(e){
+    the_song[i].addEventListener('click', function (e) {
         console.log('---', e.target.innerHTML);
 
         cover.setAttribute('src', listMusic[i].img);
@@ -82,88 +82,91 @@ for (let i = 0; i < the_song.length; i++) {
         audio.setAttribute('src', listMusic[i].src);
         audio.play();
         btn_play_pause.setAttribute('src', './assets/img/pause.png');
+        index_song = i;
     })
 }
+
+
 //próxima música
-next_song.addEventListener('click', function(){
+next_song.addEventListener('click', function () {
     index_song++;
-    if(index_song > 8){
+    if (index_song > 8) {
         index_song = 0;
     }
     renderMusic(index_song);
 })
 //música anterior
-previous_song.addEventListener('click', function(){
+previous_song.addEventListener('click', function () {
     index_song--;
-    if(index_song < 0){
+    if (index_song < 0) {
         index_song = 8;
     }
     renderMusic(index_song);
 })
 //atualiza as passadas das músicas
-function renderMusic(index){
-    
+function renderMusic(index) {
+
     audio.setAttribute('src', listMusic[index].src);
+    cover.setAttribute('src', listMusic[index].img);
+    title_1.innerHTML = listMusic[index].t1;
+    title_2.innerHTML = listMusic[index].t2;
+    
+    btn_play_pause.setAttribute('src', './assets/img/play-buttton.png');
 
     audio.addEventListener('loadeddata', () => {
+        durationSong.textContent = seg_to_min(Math.floor(audio.duration));
+     })
 
-        cover.setAttribute('src', listMusic[index].img);
-        title_1.innerHTML = listMusic[index].t1;
-        title_2.innerHTML = listMusic[index].t2;
-        durationSong.textContent =  seg_to_min(Math.floor(audio.duration));
-        btn_play_pause.setAttribute('src', './assets/img/play-buttton.png');
-
-    })
 }
 //barra de tempo decorrido da música
 audio.addEventListener('timeupdate', progressBar)
-function progressBar(){
+function progressBar() {
     let barra = document.querySelector('progress');
     barra.style.width = Math.floor((audio.currentTime / audio.duration) * 100) + '%';
     let time_inicial = document.querySelector('.current_time');
-    time_inicial.textContent =  seg_to_min(Math.floor(audio.currentTime));
+    time_inicial.textContent = seg_to_min(Math.floor(audio.currentTime));
 
 }
 //formatar o tempo de segundos para minutos
-function seg_to_min(s){
+function seg_to_min(s) {
     let min = Math.floor(s / 60)
-    let seg =  s % 60
-    if(seg < 10){
+    let seg = s % 60
+    if (seg < 10) {
         seg = '0' + seg;
-        
+
     }
-    return min+':'+seg;
+    return min + ':' + seg;
 }
 //eventos de controle
-function play_pause(){
+function play_pause() {
     if (audio.paused == true) {
-         audio.play();
-         btn_play_pause.setAttribute('src', './assets/img/pause.png')
-    }else{
+        audio.play();
+        btn_play_pause.setAttribute('src', './assets/img/pause.png')
+    } else {
         audio.pause();
         btn_play_pause.setAttribute('src', './assets/img/play-buttton.png')
     }
 }
-function backwardMin(){
+function backwardMin() {
     audio.currentTime -= 10;
 }
-function forwardMin(){
+function forwardMin() {
     audio.currentTime += 10;
 }
-function stopAudio(){
+function stopAudio() {
     audio.pause();
     audio.currentTime = 0;
     btn_play_pause.setAttribute('src', './assets/img/play-buttton.png')
 }
 //seta mostrar ou não as músicas
-function showSongs(){
+function showSongs() {
     var musics_column = document.querySelector('.music_column')
 
-    if(musics_column.classList.contains('show')){
+    if (musics_column.classList.contains('show')) {
         musics_column.classList.add('hide');
         musics_column.classList.remove('show');
         seta_img.setAttribute('src', './assets/img/seta-para-baixo.png')
-    }else{
+    } else {
         musics_column.classList.add('show');
         musics_column.classList.remove('hide');
         seta_img.setAttribute('src', './assets/img/seta-para-cima.png')
