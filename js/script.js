@@ -12,6 +12,7 @@ let previous_song = document.getElementById('previous');
 let next_song = document.getElementById('next');
 let index_song = 0;
 let clicked = false;
+
 let listMusic = [ //lista de músicas
     {
         src: './assets/music/Alan Jackson - The Older I Get.mp3',
